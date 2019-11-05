@@ -13,9 +13,10 @@
 
   .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 100px 1fr 100px;
     grid-template-rows: 1fr 1fr;
     grid-gap: 0.5em;
+
   }
 
   .grid > * {
@@ -28,7 +29,7 @@
 </head>
 <body>
   <div class="grid">
-    <div class="a">a</div>
+    <div class="a">a <div>aa</div></div>
     <div class="b">b</div>
     <div class="c">c</div>
     <div class="d">d</div>
