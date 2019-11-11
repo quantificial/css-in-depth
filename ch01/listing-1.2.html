@@ -1,5 +1,9 @@
 <!doctype html>
 <head>
+  <!-- 
+    學習 CSS 版面配置
+    https://zh-tw.learnlayout.com/no-layout.html 
+  -->
   <style>
 h1 {
   font-family: serif;
@@ -14,11 +18,29 @@ h1 {
 }
 
 .simple {
-  width: 500px;
-  margin: 20px auto;
-  -webkit-box-sizing: border-box;
+  border: solid blue 1px;
+  
+  width: 500px; 
+  height: 100px;
+  min-height: 100px;
+
+  /*use magin to center the container */
+  margin: 20px auto; /* top-bottom margin and left-right margin */
+  /* left-right margin is 0, the element will be at center */
+  -webkit-box-sizing: border-box; /* border-box: the padding and border will not affect the element width*/
      -moz-box-sizing: border-box;
           box-sizing: border-box;
+
+  /* center align the text for display block*/
+  text-align: center; 
+  vertical-align: middle;
+
+  /*use flex to align the elements*/
+  display:flex; 
+  align-items: center;
+  justify-content: center
+
+
 }
 
 .fancy {
@@ -60,7 +82,9 @@ h1 {
   max-width: 200px;
   box-sizing: border-box;
 
-  position: relative; /* apply relative to the original position */
+  /* position: static mean the default value */
+  /* apply relative to the original position */
+  position: relative; 
   top: -50px;
   left: 50px;
   background-color: white;
@@ -68,11 +92,18 @@ h1 {
 }
 
 #test4 {
-  position: fixed; /* with refer to the body */
+  /* fixed mean with refer to the windows of the browser*/
+  position: fixed;
+  width: 200px;
+  height: 30px;
   bottom: 0;
   right: 0;
   width: 200px;
-  background-color: blue;
+
+  background-color: yellow;
+  border-color: blue;
+  border-style: solid;
+  border-width: 0.1em;
 }
 
 #container {
@@ -82,7 +113,7 @@ h1 {
 
 #leftbox {
   position:absolute; /* with refer to the parent container*/
-  left:0;
+  left:0px;
   width:200px;
   border-style: solid;
   border-color: red;
@@ -175,19 +206,51 @@ h1 {
   <header class="page-header">
     
     <div>
-      example.... 1 <div style="display:inline">display block</div>.....
+      example one for the display properties
+      <div style="display:inline">display inline</div>..... 
+      <div style="display: inline-block;">inline block</div>......
+      <div style="display: block;">display BLOCK</div>.....
+      <div id="testnone" style="display: none;">trigger display none</div> none..
     </div>
+
+    <hr />
+
+    <div class="simple">
+        this is css simple... <div style="display: inline;">inline</div>...
+        and use flex container to align center
+    </div>
+
+    <hr />
 
     <div id="test" >test</div>
     <div id="test2">test2</div>
-    <div id="test3">test3</div>
+    <div id="test3">test3 - use position: relative</div>
+
+    <hr />
 
     <div id="container">
-      <div id="leftbox"> left box menu</div>
-      <div id="rightbox">right box content</div>
-      <div id="rightbox">right box content</div>
-      <div id="rightbox">right box content</div>
+      <div id="leftbox"> 
+        left box menu, use absolute to place at left:0
+        <ul>
+          <li>
+            1.  
+          </li>
+          <li>
+            2.
+          </li>
+          <li>
+            3.
+          </li>
+        </ul>
+      </div>
+      <div id="rightbox">
+        right box content 1, use left-margin:200px so will not overlapped with leftbox
+      </div>
+      <div id="rightbox">right box content 2</div>
+      <div id="rightbox">right box content 3</div>
     </div>
+
+    <hr />
 
     <div id="float1" class="floating">
       floating....1
